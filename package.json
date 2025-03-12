@@ -1,0 +1,66 @@
+{
+  "name": "big-o-complexity",
+  "displayName": "Big O Complexity",
+  "description": "Shows the Big O complexity of functions in your code",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:python",
+    "onLanguage:java",
+    "onLanguage:c",
+    "onLanguage:cpp"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Big O Complexity",
+      "properties": {
+        "bigOComplexity.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable the Big O complexity analysis"
+        },
+        "bigOComplexity.languages": {
+          "type": "array",
+          "default": ["javascript", "typescript", "python", "java", "c", "cpp"],
+          "description": "List of languages to analyze"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "bigOComplexity.analyze",
+        "title": "Analyze Big O Complexity"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.18.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4",
+    "vscode-test": "^1.6.1"
+  }
+}
